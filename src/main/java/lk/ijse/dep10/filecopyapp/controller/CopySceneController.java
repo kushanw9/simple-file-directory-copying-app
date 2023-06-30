@@ -8,33 +8,24 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 
 public class CopySceneController {
+    public Button btnCopy;
+    public Button btnDelete;
+    public Button btnDestinationBrowse;
+    public Button btnMove;
+    public Button btnSourceBrowse;
+    public Label lblPercentage;
+    public ProgressBar prgBar;
+    public TextField txtDestination;
+    public TextField txtSource;
 
-    @FXML
-    private Button btnCopy;
+    public void initialize() {
+        btnCopy.setDisable(true);
+        btnMove.setDisable(true);
+        btnDelete.setDisable(true);
 
-    @FXML
-    private Button btnDelete;
-
-    @FXML
-    private Button btnDestinationBrowse;
-
-    @FXML
-    private Button btnMove;
-
-    @FXML
-    private Button btnSourceBrowse;
-
-    @FXML
-    private Label lblPercentage;
-
-    @FXML
-    private ProgressBar prgBar;
-
-    @FXML
-    private TextField txtDestination;
-
-    @FXML
-    private TextField txtSource;
+        txtSource.setEditable(false);
+        txtDestination.setEditable(false);
+    }
 
     @FXML
     void btnCopyOnAction(ActionEvent event) {

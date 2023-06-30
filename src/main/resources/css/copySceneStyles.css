@@ -1,0 +1,31 @@
+#btnSourceBrowse,
+#btnDestinationBrowse {
+    -fx-background-color: rgba(0, 128, 0, 1);
+    -fx-text-fill: white;
+}
+
+#btnSourceBrowse:hover,
+#btnDestinationBrowse:hover {
+    -fx-background-color: rgba(1, 75, 1, 0.8);
+}
+
+#btnDelete {
+    -fx-background-color: darkred;
+    -fx-text-fill: white;
+}
+
+#btnDelete:hover {
+    -fx-background-color: rgba(74, 2, 4, 0.85);
+}
+
+#btnCopy,
+#btnMove{
+    -fx-background-color: #3954b3;
+    -fx-text-fill: white;
+
+}
+
+#btnCopy:hover,
+#btnMove:hover{
+    -fx-background-color: #013d6f;
+}

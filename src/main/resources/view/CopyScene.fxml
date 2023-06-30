@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="260.0" prefWidth="500.0" stylesheets="@../css/copySceneStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.filecopyapp.controller.CopySceneController">
+    <children>
+        <VBox layoutX="21.0" layoutY="22.0" prefHeight="213.0" prefWidth="480.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <Label text="Select the File/Folder to copy">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font></Label>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <TextField fx:id="txtSource" prefHeight="24.0" prefWidth="360.0" />
+                        <Button fx:id="btnSourceBrowse" mnemonicParsing="false" onAction="#btnSourceBrowseOnAction" text="BROWSE" />
+                    </children>
+                </HBox>
+                <Label text="Select the destination folder">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font></Label>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <TextField fx:id="txtDestination" prefHeight="24.0" prefWidth="360.0" />
+                        <Button fx:id="btnDestinationBrowse" mnemonicParsing="false" onAction="#btnDestinationBrowseOnAction" text="BROWSE" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Button fx:id="btnCopy" mnemonicParsing="false" onAction="#btnCopyOnAction" prefWidth="68.0" text="COPY" />
+                        <Button fx:id="btnMove" mnemonicParsing="false" onAction="#btnMoveOnAction" prefWidth="68.0" text="MOVE" />
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="DELETE" />
+                    </children>
+                </HBox>
+                <ProgressBar fx:id="prgBar" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="200.0" progress="0.22">
+                    <effect>
+                        <ColorAdjust hue="-0.52" />
+                    </effect>
+                </ProgressBar>
+                <Label fx:id="lblPercentage" alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="480.0" text="0%" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

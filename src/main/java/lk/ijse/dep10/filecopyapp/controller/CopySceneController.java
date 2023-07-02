@@ -85,7 +85,7 @@ public class CopySceneController {
 
 
         } else {
-            // method to be implemented for copying files
+            copyFiles(sourceFile,targetFile);
         }
 
     }
@@ -138,6 +138,37 @@ public class CopySceneController {
         prgBar.progressProperty().bind(task.progressProperty());
         new Thread(task).start();
     }
+
+    private void copyFiles(File sourceFile, File targetFile) throws IOException {
+        Task<Void> task = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                FileInputStream fis = new FileInputStream(sourceFile);
+                FileOutputStream fos = new FileOutputStream(targetFile);
+                double write = 0.0;
+                while (true) {
+                    byte[] buffer = new byte[1024 * 1024 * 5];
+                    int read = fis.read(buffer);
+                    write += read;
+                    System.out.println(write);
+                    if (read == -1) break;
+                    fos.write(buffer, 0, read);
+                    updateMessage(String.format("%2.2f", write / sourceFile.length() * 100).concat("% Complete"));
+                    updateProgress(write,sourceFile.length());
+                }
+                fis.close();
+                fos.close();
+                if (moveFiles == true) {
+                    btnDelete.fire();
+                }
+                return null;
+            }
+        };
+        lblPercentage.textProperty().bind(task.messageProperty());
+        prgBar.progressProperty().bind(task.progressProperty());
+        new Thread(task).start();
+    }
+
     private double getTotalSize(File[] files) {
         double total = 0;
 

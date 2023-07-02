@@ -4,6 +4,7 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.DirectoryChooser;
 
 import javax.swing.*;
 import java.io.File;
@@ -187,9 +188,18 @@ public class CopySceneController {
 
     }
 
+
     @FXML
     void btnDestinationBrowseOnAction(ActionEvent event) {
-
+        resetProgress();
+        txtDestination.setText("");
+        targetFolder = null;
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select the destination folder");
+        targetFolder = directoryChooser.showDialog(btnDestinationBrowse.getScene().getWindow());
+        enableButtons();
+        if (targetFolder == null) return;
+        txtDestination.setText(targetFolder.getAbsolutePath());
     }
 
     @FXML

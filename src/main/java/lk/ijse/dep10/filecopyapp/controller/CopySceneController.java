@@ -204,7 +204,8 @@ public class CopySceneController {
 
     @FXML
     void btnMoveOnAction(ActionEvent event) {
-
+        moveFiles = true;
+        btnCopy.fire();
     }
 
 }
